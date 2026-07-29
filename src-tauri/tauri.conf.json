@@ -1,0 +1,24 @@
+{
+  "productName": "Quotes",
+  "version": "0.1.0",
+  "identifier": "com.paiheme.quotes",
+  "build": {
+    "frontendDist": "../src"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "Quotes",
+        "width": 480,
+        "height": 720,
+        "resizable": true,
+        "titleBarStyle": "Overlay"
+      }
+    ]
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["dmg", "app"]
+  }
+}

@@ -1,0 +1,337 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+:root {
+  --bg1: #1a0f2e;
+  --bg2: #2d1250;
+  --pink: #ff2fa0;
+  --pink-soft: #ffaddd;
+  --purple: #6b3fa0;
+  --text: #e6d9ff;
+  --danger: #ff4d6d;
+  --ok: #3ddc97;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Space Mono", monospace;
+  color: var(--text);
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(255, 47, 160, 0.08),
+      transparent 40%
+    ),
+    linear-gradient(135deg, var(--bg2) 0%, var(--bg1) 60%, #0d0618 100%);
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+header {
+  padding: 22px 24px 6px;
+}
+header .tag {
+  font-size: 11px;
+  opacity: 0.55;
+  letter-spacing: 2px;
+}
+header h1 {
+  margin: 4px 0 0;
+  font-size: 22px;
+  color: var(--pink-soft);
+  text-shadow: 0 0 14px rgba(255, 47, 160, 0.5);
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+  padding: 16px 20px 10px;
+}
+nav button {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(107, 63, 160, 0.5);
+  color: var(--text);
+  padding: 10px 6px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  transition: all 0.18s ease;
+  opacity: 0.75;
+}
+nav button:hover {
+  opacity: 1;
+  border-color: var(--pink-soft);
+}
+nav button.active {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: #1a0f2e;
+  font-weight: bold;
+  opacity: 1;
+  box-shadow: 0 4px 16px rgba(255, 47, 160, 0.35);
+}
+
+main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 6px 20px 28px;
+  scrollbar-width: thin;
+}
+main::-webkit-scrollbar {
+  width: 6px;
+}
+main::-webkit-scrollbar-thumb {
+  background: var(--purple);
+  border-radius: 4px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 143, 208, 0.18);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 14px;
+  position: relative;
+  animation: fadeIn 0.35s ease;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.card .text {
+  font-size: 15px;
+  line-height: 1.65;
+}
+.card .src {
+  font-size: 11px;
+  opacity: 0.5;
+  margin-top: 10px;
+  letter-spacing: 0.3px;
+}
+.card .rating {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 12px;
+  color: var(--pink-soft);
+  opacity: 0.65;
+}
+.card .actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+.card button {
+  background: none;
+  border: 1px solid var(--purple);
+  color: var(--pink-soft);
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+.card button:hover {
+  background: var(--pink);
+  color: #1a0f2e;
+  border-color: var(--pink);
+  transform: translateY(-1px);
+}
+.card button.del:hover {
+  background: var(--danger);
+  border-color: var(--danger);
+}
+
+.pair {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 6px;
+}
+.pick-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--purple);
+  border-radius: 16px;
+  padding: 24px;
+  cursor: pointer;
+  transition: 0.18s ease;
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.6;
+  animation: fadeIn 0.4s ease;
+}
+.pick-card:hover {
+  border-color: var(--pink);
+  box-shadow: 0 8px 28px rgba(255, 47, 160, 0.3);
+  transform: translateY(-3px);
+}
+.vs {
+  text-align: center;
+  opacity: 0.35;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+textarea,
+input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--purple);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  margin-bottom: 12px;
+  transition: border-color 0.15s;
+}
+textarea:focus,
+input:focus {
+  outline: none;
+  border-color: var(--pink-soft);
+}
+.addbtn {
+  width: 100%;
+  background: var(--pink);
+  border: none;
+  color: #1a0f2e;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+}
+.addbtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(255, 47, 160, 0.35);
+}
+.addbtn.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  border: 1px solid var(--purple);
+  margin-top: 8px;
+}
+
+.empty {
+  opacity: 0.45;
+  text-align: center;
+  margin-top: 60px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+#toasts {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 999;
+}
+.toast {
+  background: #1a0f2e;
+  border: 1px solid var(--purple);
+  color: var(--text);
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  animation: toastIn 0.25s ease;
+  min-width: 220px;
+  text-align: center;
+}
+.toast.ok {
+  border-color: var(--ok);
+  color: var(--ok);
+}
+.toast.err {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.toast.out {
+  animation: toastOut 0.25s ease forwards;
+}
+@keyframes toastOut {
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+#modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 5, 20, 0.65);
+  backdrop-filter: blur(3px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 998;
+  animation: fadeIn 0.2s ease;
+}
+#modalOverlay.show {
+  display: flex;
+}
+.modal {
+  background: #1e1035;
+  border: 1px solid var(--purple);
+  border-radius: 16px;
+  padding: 24px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+.modal p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+.modal .row {
+  display: flex;
+  gap: 10px;
+}
+.modal button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  border: 1px solid var(--purple);
+  background: transparent;
+  color: var(--text);
+}
+.modal button.confirm {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #1a0f2e;
+  font-weight: bold;
+}
